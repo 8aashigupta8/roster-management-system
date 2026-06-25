@@ -1,0 +1,79 @@
+# ==========================================
+# 🐍 Python / Django Rules
+# ==========================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Local development database
+*.sqlite3
+
+# Django media files (user uploads)
+media/
+
+# Django collected static files (uncomment if you don't want them in git)
+# static/
+
+# Testing and coverage reports
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# ==========================================
+# ⚛️ React / Frontend Rules
+# ==========================================
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Production build artifacts (Vite / Create React App)
+dist/
+build/
+out/
+
+# Frontend testing and coverage
+coverage/
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Framework caches
+.eslintcache
+.stylelintcache
+.next/
+.nuxt/
+
+# ==========================================
+# 🔒 Security & Environment Secrets
+# ==========================================
+.env
+.env.local
+.env.*.local
+*.env
+
+# ==========================================
+# 💻 IDE, Editor, & OS Files
+# ==========================================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# OS generated files
+.DS_Store
+Thumbs.db
