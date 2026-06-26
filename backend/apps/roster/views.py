@@ -5,6 +5,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from .services import RosterService
 from apps.accounts.models import User
+from apps.accounts.serializers import UserSerializer
 
 from .models import (
     Shift,
@@ -62,7 +63,6 @@ class RosterViewSet(viewsets.ModelViewSet):
             ).distinct()
     
     def perform_create(self, serializer):
-
         serializer.save(
             created_by=self.request.user
         )
@@ -192,6 +192,24 @@ class RosterViewSet(viewsets.ModelViewSet):
             "message":
                 "Shift assigned successfully."
         })
+
+    @action(detail=True, methods=["GET"])
+    def team_members(self, request, pk=None):
+
+        roster = self.get_object()
+
+        employees = User.objects.filter(
+            employee_profile__sub_department=
+                roster.sub_department,
+            role="EMPLOYEE"
+        )
+
+        serializer = UserSerializer(
+            employees,
+            many=True
+        )
+
+        return Response(serializer.data)
 
 class RosterEntryViewSet(viewsets.ModelViewSet):
 

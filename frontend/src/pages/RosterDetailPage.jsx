@@ -21,7 +21,8 @@ import PageHeader
 from "../components/common/PageHeader";
 
 import {
-    getRosterById, bulkAssignShift, publishRoster, lockRoster, assignSingleShift
+    getRosterById, bulkAssignShift, publishRoster, lockRoster, 
+    assignSingleShift, getRosterTeamMembers
 } from "../services/rosterService";
 
 import {
@@ -154,7 +155,7 @@ function RosterDetailPage() {
                 );
 
                 const employeesData =
-                    await getUsers();
+                    await getRosterTeamMembers(id);
                 setEmployees(
                     employeesData
                 );

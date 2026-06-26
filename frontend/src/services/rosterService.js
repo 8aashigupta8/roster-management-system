@@ -86,3 +86,13 @@ export const assignSingleShift =
             );
         return response.data;
     };
+
+export const getRosterTeamMembers =
+    async (rosterId) => {
+        const response =
+            await axiosInstance.get(
+                `/roster/rosters/${rosterId}/team_members/`
+            );
+
+        return response.data;
+    };
